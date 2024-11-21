@@ -12,4 +12,4 @@ env/
 src/llm/wandb/
 src/llm/mlruns/
 src/llm/logs/
-
+src/llm/results/
