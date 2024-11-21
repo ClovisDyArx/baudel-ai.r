@@ -1,3 +1,15 @@
+# Jetbrains
 __pycache__/
 .idea/
+
+# Cloned repos
 clone/
+
+# Env variables
+env/
+
+# Fine-tuning gpt-2
+src/llm/wandb/
+src/llm/mlruns/
+src/llm/logs/
+
