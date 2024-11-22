@@ -14,7 +14,7 @@ input_ids = tokenizer.encode(prompt, return_tensors="pt")
 output = model.generate(
     input_ids,
     min_length=50,             # Minimum number of tokens in the generated text
-    max_length=100,            # Maximum number of tokens in the generated text
+    max_length=200,            # Maximum number of tokens in the generated text
     num_return_sequences=1,    # Number of sequences to generate
     temperature=0.5,           # Sampling temperature (higher = more random)
     top_k=50,                  # Consider top-k tokens for sampling

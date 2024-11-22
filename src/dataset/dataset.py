@@ -42,7 +42,13 @@ def add_special_tokens(text):
     return "<|startoftext|>" + text + "<|endoftext|>"
 
 
-def preprocess_df(df_poetry, df_love_poems, df_classification, df_poetryfoundationorg, df_poetry_foundation):
+def split_long_poems(poem, max_words=200):
+    words = poem.split()
+    for i in range(0, len(words), max_words):
+        yield ' '.join(words[i:i + max_words])
+
+
+def preprocess_df(df_poetry, df_love_poems, df_classification, df_poetryfoundationorg, df_poetry_foundation, full_dataset=False):
 
     # normalize the content of the poems
     df_poetry['content'] = df_poetry['content'].apply(normalize_text)
@@ -57,6 +63,21 @@ def preprocess_df(df_poetry, df_love_poems, df_classification, df_poetryfoundati
 
     # drop duplicates
     df.drop_duplicates(inplace=True)
+
+    # shuffle the dataframe
+    df = df.sample(frac=1).reset_index(drop=True)
+
+    # if poems are too long, we separate them into multiple poems
+    df = df['poem'].apply(lambda poem: list(split_long_poems(poem))).explode().reset_index(drop=True).to_frame(name='poem')
+
+    if not full_dataset:
+        # keep only poems with the word "love", "dear" or "heart" in it
+        df = df[df['poem'].str.contains("love", case=False)
+                | df['poem'].str.contains("dear", case=False)
+                | df['poem'].str.contains("heart", case=False)]
+
+        # keep half of the dataset
+        df = df.sample(frac=0.5).reset_index(drop=True)
 
     # add special tokens - GPT2
     df = df.apply(add_special_tokens)
@@ -107,3 +128,8 @@ class PoemsDataset(Dataset):
             "attention_mask": self.attention_mask[idx],
             "labels": self.input_ids[idx],
         }
+
+
+"""if __name__ == "__main__":
+    dataset = DatasetPoem()
+    dataset.display_dataset()"""
