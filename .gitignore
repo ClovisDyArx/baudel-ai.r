@@ -13,3 +13,4 @@ src/llm/wandb/
 src/llm/mlruns/
 src/llm/logs/
 src/llm/results/
+src/llm/finetuned_models/
