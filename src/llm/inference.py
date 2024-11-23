@@ -1,9 +1,9 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-model_path = "./finetuned_models/gpt2-medium-500poems"
+# model_path = "./finetuned_models/gpt2-medium-500poems"
 model_name = "gpt2-medium"  # TODO: "gpt2-medium", "gpt2-large" or "gpt2-xl"
 
-model = GPT2LMHeadModel.from_pretrained(model_path)
+model = GPT2LMHeadModel.from_pretrained(model_name)
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
 # Define a prompt for the model
