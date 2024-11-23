@@ -17,12 +17,12 @@ poems_dataset = PoemsDataset(tokenized_data)
 
 training_args = TrainingArguments(
     output_dir="./results",            # Directory to save model checkpoints
-    num_train_epochs=3,                # Number of epochs
+    num_train_epochs=2,                # Number of epochs
     per_device_train_batch_size=1,     # Batch size per device
     per_device_eval_batch_size=1,      # Evaluation batch size
     logging_dir="./logs",              # Directory for logs
     logging_steps=10,                  # Log every 10 steps
-    save_steps=3000,                   # Save checkpoint every 750 steps
+    save_steps=5000,                   # Save checkpoint every 5000 steps
     eval_strategy="steps",             # Evaluate at every step
     eval_steps=200,                   # Evaluate every 200 steps
     report_to="wandb",                 # Use WandB for logging

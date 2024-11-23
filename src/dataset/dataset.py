@@ -77,7 +77,7 @@ def preprocess_df(df_poetry, df_love_poems, df_classification, df_poetryfoundati
                 | df['poem'].str.contains("heart", case=False)]
 
         # keep half of the dataset
-        df = df.sample(frac=0.5).reset_index(drop=True)
+        # df = df.sample(frac=0.5).reset_index(drop=True)
 
     # add special tokens - GPT2
     df = df.apply(add_special_tokens)
@@ -130,6 +130,6 @@ class PoemsDataset(Dataset):
         }
 
 
-"""if __name__ == "__main__":
+if __name__ == "__main__":
     dataset = DatasetPoem()
-    dataset.display_dataset()"""
+    dataset.display_dataset()

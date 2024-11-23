@@ -12,7 +12,7 @@ model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
 
-prompt = "Question: "  # "Question: What is this animal? Answer:"
+prompt = "Question: Describe the woman's eyes."
 
 inputs = processor(image, text=prompt, return_tensors="pt").to(device, torch.float16)
 

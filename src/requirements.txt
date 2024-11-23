@@ -1,0 +1,8 @@
+fastapi
+transformers
+python-dotenv
+uvicorn
+torch
+wandb
+pydantic
+streamlit
