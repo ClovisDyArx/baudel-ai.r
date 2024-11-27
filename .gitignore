@@ -6,11 +6,16 @@ __pycache__/
 clone/
 
 # Env variables
-env/
+mk1/env/
 
 # Fine-tuning gpt-2
-src/llm/wandb/
-src/llm/mlruns/
-src/llm/logs/
-src/llm/results/
-src/finetuned_models/
+mk1/src/llm/wandb/
+mk1/src/llm/mlruns/
+mk1/src/llm/logs/
+mk1/src/llm/results/
+mk1/src/finetuned_models/
+
+# Images
+*.png
+*.jpg
+*.jpeg
