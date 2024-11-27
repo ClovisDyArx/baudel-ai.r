@@ -1,0 +1,51 @@
+version: '3.8'
+name: baudelair
+
+
+services:
+  llava_model:
+    build:
+      context: ./llava_model
+    container_name: llava_model
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./llava_model:/app
+    networks:
+      - llava_network
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+    container_name: fastapi_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - llava_model
+    volumes:
+      - ./backend:/app
+    networks:
+      - llava_network
+
+  interface:
+    build:
+      context: ./interface
+    container_name: streamlit_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./interface/app.py:/app/app.py
+    working_dir: /app
+    command: >
+      bash -c "
+        pip install -r /app/requirements.txt &&
+        streamlit run /app/app.py --server.port 8501 --server.address 0.0.0.0
+      "
+    networks:
+      - llava_network
+
+networks:
+  llava_network:
+    name: llava_network
+    driver: bridge
