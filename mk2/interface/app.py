@@ -5,23 +5,27 @@ import base64
 st.title("💌 Baudel-AI.r 💌")
 st.write("Generate a personalized love letter or poem using LLaVA 13B.")
 
+token = st.text_input("Enter your token (test with 'Xx_SECRET_TOKEN_du_69_xX')", type="password")
+
 uploaded_image = st.file_uploader("Upload an image (optional):", type=["jpg", "png"])
 
 recipient_name = st.text_input("Recipient's Name:")
 custom_message = st.text_input("Custom Sentence to include in the poem (optional):")
 additional_context = st.text_area("Additional Context (optional):")
 
+# Button to trigger the generation
 if st.button("Generate Love Letter"):
     if not recipient_name:
         st.error("Please enter the recipient's name.")
+    elif not token:
+        st.error("Please enter your token.")
     else:
         prompt = f"Write a love letter to {recipient_name}."
         if custom_message:
             prompt += f" Include the following: {custom_message}."
 
         if additional_context:
-            prompt += f" Additional context: {additional_context}"
-        prompt += "."
+            prompt += f" Additional context: {additional_context}."
 
         image_data = []
         if uploaded_image:
@@ -34,8 +38,12 @@ if st.button("Generate Love Letter"):
             "images": image_data
         }
 
+        headers = {
+            "Authorization": f"Bearer {token}"
+        }
+
         try:
-            response = requests.post("http://fastapi_backend:8000/generate", json=payload)
+            response = requests.post("http://fastapi_backend:8000/generate", json=payload, headers=headers)
             response.raise_for_status()
 
             response_data = response.json()

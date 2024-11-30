@@ -1,8 +1,14 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request, Depends
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 import requests
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv(dotenv_path='.env')
+SECRET_TOKEN = os.getenv("SECRET_TOKEN")
 
 app = FastAPI()
 app.add_middleware(
@@ -23,8 +29,18 @@ class PromptRequest(BaseModel):
     images: list[str] = None
 
 
+def validate_token(request: Request):
+    token = request.headers.get("Authorization")
+
+    if not token or token != f"Bearer {SECRET_TOKEN}":
+        raise HTTPException(
+            status_code=403,
+            detail="Invalid or missing token. Please provide the correct token."
+        )
+
+
 @app.post("/generate")
-async def generate_love_letter(request: PromptRequest):
+async def generate_love_letter(request: PromptRequest, token: str = Depends(validate_token)):
     logger.info(f"Received request: {request}")
 
     llava_url = "http://llava_model:11434/api/generate"

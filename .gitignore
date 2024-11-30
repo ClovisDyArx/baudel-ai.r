@@ -6,7 +6,7 @@ __pycache__/
 clone/
 
 # Env variables
-mk1/env/
+*.env
 
 # Fine-tuning gpt-2
 mk1/src/llm/wandb/
