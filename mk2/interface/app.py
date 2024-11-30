@@ -13,7 +13,6 @@ recipient_name = st.text_input("Recipient's Name:")
 custom_message = st.text_input("Custom Sentence to include in the poem (optional):")
 additional_context = st.text_area("Additional Context (optional):")
 
-# Button to trigger the generation
 if st.button("Generate Love Letter"):
     if not recipient_name:
         st.error("Please enter the recipient's name.")

@@ -19,3 +19,6 @@ mk1/src/finetuned_models/
 *.png
 *.jpg
 *.jpeg
+
+# Discord's bot (not working)
+mk2/discord_bot
