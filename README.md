@@ -24,7 +24,7 @@
 - [ ] faire du canary deployment
 - [x] utiliser du MLFlow pour versionner son modèle et / ou mettre son modèle à jour en production
 - [ ] faire du scaling horizontal
-- [ ] dans le cas des LLM des système de protection contre le prompt injection sont mis en place - POSSIBLE
+- [x] dans le cas des LLM des système de protection contre le prompt injection sont mis en place
 - [ ] Le modèle dispose d'un système de détection de data-drift 
 
 ## ***Instructions***
