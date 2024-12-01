@@ -1,9 +1,14 @@
-# ***TODO***
+## ***Instructions***
 
-```bash
-docker-compose up --build
-```
+- How to use the service ?
+    ```bash
+    docker-compose up --build
+    ```
+    Wait for the docker containers to properly start.
+    Head up to [8501](http://localhost:8501) to access the interface.
 
-Interface dispo sur localhost:8051
 
-un jour où je serai moins fatigué j'écrirai un vrai readme, promis..
+- How to stop the service ?
+    ```bash
+    docker-compose down
+    ```
