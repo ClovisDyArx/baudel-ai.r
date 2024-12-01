@@ -20,5 +20,9 @@ mk1/src/finetuned_models/
 *.jpg
 *.jpeg
 
+# Audio files
+*.mp3
+*.wav
+
 # Discord's bot (not working)
 mk2/discord_bot

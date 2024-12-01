@@ -68,7 +68,6 @@ if st.button(t["generate_button"]):
                 st.subheader(t["result_title"])
                 st.session_state.generated_text = response_data["text"]
                 st.write(st.session_state.generated_text)
-
             else:
                 st.error(t["error_no_text"])
 
@@ -81,6 +80,9 @@ if st.session_state.generated_text:
             "http://fastapi_backend:8000/tts",
             json={"text": st.session_state.generated_text, "language": t["tts_language"]}
         )
+
+        st.subheader(t["result_title"])
+        st.write(st.session_state.generated_text)
 
         if tts_response.status_code == 200:
             audio_file = "output.mp3"
