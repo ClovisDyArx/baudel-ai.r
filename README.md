@@ -3,7 +3,7 @@
 
 **mk1/** : Première grosse version du projet, fine-tuning de gpt-2 medium, captionning simple avec BLIP-2, pipeline WandB, ...
 
-**mk2/** : Seconde et version actuelle du projet, LLaVA (MLLM).
+**mk2/** : Seconde et version actuelle du projet, LLaVA (MLLM), gTTS (TTS).
 
 ## ***LLaVa*** : Multimodal Large Language Model (MLLM) 
 ### **Level 0** :
@@ -28,6 +28,7 @@
 - [ ] Le modèle dispose d'un système de détection de data-drift 
 
 ## ***Instructions***
+Head to **mk2/** and follow these steps:
 
 How to use the service ?
 ```bash
