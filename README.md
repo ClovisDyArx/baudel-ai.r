@@ -20,7 +20,7 @@
 - [ ] Faire un test de charge de votre modèle en production avec un outil de type locust
 - [ ] déployer vos conteneur avec kubernetes - POSSIBLE
 - [x] avoir une interface via un bot discord ou une interface graphique pour utiliser votre systeme
-- [ ] Faire de la quantization de votre modèle pour booster ses performances - POSSIBLE
+- [x] Faire de la quantization de votre modèle pour booster ses performances
 - [ ] faire du canary deployment
 - [x] utiliser du MLFlow pour versionner son modèle et / ou mettre son modèle à jour en production
 - [ ] faire du scaling horizontal
