@@ -47,18 +47,6 @@ services:
     networks:
       - llava_network
 
-#  discord_bot:
-#    build:
-#      context: ./discord_bot
-#    container_name: discord_bot
-#    env_file:
-#      - ./discord.env
-#    volumes:
-#      - ./discord.env:/app/.env
-#    restart: always
-#    depends_on:
-#      - backend
-
 networks:
   llava_network:
     name: llava_network

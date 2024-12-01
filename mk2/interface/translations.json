@@ -12,7 +12,8 @@
     "error_no_token": "Please enter your access token.",
     "result_title": "Your Love Letter 💖",
     "error_no_text": "Error: No text received from the model.",
-    "error_backend": "Error communicating with the backend:"
+    "error_backend": "Error communicating with the backend:",
+    "tts_language": "en"
   },
   "Français": {
     "title": "💌 Baudel-AI.r 💌",
@@ -27,7 +28,8 @@
     "error_no_token": "Veuillez entrer votre jeton d'accès.",
     "result_title": "Votre Lettre d'Amour 💖",
     "error_no_text": "Erreur : Aucun texte reçu du modèle.",
-    "error_backend": "Erreur de communication avec le backend :"
+    "error_backend": "Erreur de communication avec le backend :",
+    "tts_language": "fr"
   },
   "Español": {
     "title": "💌 Baudel-AI.r 💌",
@@ -42,7 +44,8 @@
     "error_no_token": "Por favor, ingresa tu token de acceso.",
     "result_title": "Tu Carta de Amor 💖",
     "error_no_text": "Error: No se recibió texto del modelo.",
-    "error_backend": "Error al comunicarse con el backend:"
+    "error_backend": "Error al comunicarse con el backend:",
+    "tts_language": "es"
   },
   "Deutsch": {
     "title": "💌 Baudel-AI.r 💌",
@@ -57,7 +60,8 @@
     "error_no_token": "Bitte geben Sie Ihr Zugriffstoken ein.",
     "result_title": "Ihr Liebesbrief 💖",
     "error_no_text": "Fehler: Kein Text vom Modell erhalten.",
-    "error_backend": "Fehler bei der Kommunikation mit dem Backend:"
+    "error_backend": "Fehler bei der Kommunikation mit dem Backend:",
+    "tts_language": "de"
   },
   "中文": {
     "title": "💌 Baudel-AI.r 💌",
@@ -72,7 +76,8 @@
     "error_no_token": "请输入您的访问令牌。",
     "result_title": "您的情书 💖",
     "error_no_text": "错误：未从模型收到文本。",
-    "error_backend": "与后端通信时出错："
+    "error_backend": "与后端通信时出错：",
+    "tts_language": "zh-cn"
   },
   "日本語": {
     "title": "💌 Baudel-AI.r 💌",
@@ -87,7 +92,8 @@
     "error_no_token": "アクセス トークンを入力してください。",
     "result_title": "あなたのラブレター 💖",
     "error_no_text": "エラー: モデルからテキストが受信されませんでした。",
-    "error_backend": "バックエンドとの通信エラー:"
+    "error_backend": "バックエンドとの通信エラー:",
+    "tts_language": "ja"
   },
   "हिन्दी": {
     "title": "💌 Baudel-AI.r 💌",
@@ -102,7 +108,8 @@
     "error_no_token": "कृपया अपना टोकन दर्ज करें।",
     "result_title": "आपका प्रेम पत्र 💖",
     "error_no_text": "त्रुटि: मॉडल से कोई पाठ प्राप्त नहीं हुआ।",
-    "error_backend": "बैकएंड के साथ संचार में त्रुटि:"
+    "error_backend": "बैकएंड के साथ संचार में त्रुटि:",
+    "tts_language": "hi"
   },
   "ไทย": {
     "title": "💌 Baudel-AI.r 💌",
@@ -117,7 +124,8 @@
     "error_no_token": "กรุณาใส่โทเค็นของคุณ",
     "result_title": "จดหมายรักของคุณ 💖",
     "error_no_text": "ข้อผิดพลาด: ไม่มีข้อความที่ได้รับจากโมเดล",
-    "error_backend": "ข้อผิดพลาดในการสื่อสารกับ backend:"
+    "error_backend": "ข้อผิดพลาดในการสื่อสารกับ backend:",
+    "tts_language": "th"
   },
   "Русский": {
     "title": "💌 Baudel-AI.r 💌",
@@ -132,6 +140,7 @@
     "error_no_token": "Пожалуйста, введите ваш токен доступа.",
     "result_title": "Ваше любовное письмо 💖",
     "error_no_text": "Ошибка: не получен текст от модели.",
-    "error_backend": "Ошибка связи с сервером:"
+    "error_backend": "Ошибка связи с сервером:",
+    "tts_language": "ru"
   }
 }

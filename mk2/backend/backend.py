@@ -5,7 +5,12 @@ import logging
 import requests
 from dotenv import load_dotenv
 import os
+from fastapi.responses import FileResponse
+import re
+from gtts import gTTS
 
+
+LLAVA_URL = "http://llava_model:11434/api/generate"
 
 load_dotenv(dotenv_path='.env')
 SECRET_TOKEN = os.getenv("SECRET_TOKEN")
@@ -39,11 +44,15 @@ def validate_token(request: Request):
         )
 
 
+def preprocess_text_for_tts(text: str) -> str:
+    text = text.replace("\n", " ").replace("\t", " ")
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+
 @app.post("/generate")
 async def generate_love_letter(request: PromptRequest, token: str = Depends(validate_token)):
     logger.info(f"Received request: {request}")
-
-    llava_url = "http://llava_model:11434/api/generate"
 
     llava_payload = {
         "model": request.model,
@@ -55,7 +64,7 @@ async def generate_love_letter(request: PromptRequest, token: str = Depends(vali
         llava_payload["images"] = request.images
 
     try:
-        response = requests.post(llava_url, json=llava_payload)
+        response = requests.post(LLAVA_URL, json=llava_payload)
         logger.info(f"Response received: {response.status_code}")
 
         if response.status_code != 200:
@@ -72,3 +81,26 @@ async def generate_love_letter(request: PromptRequest, token: str = Depends(vali
     except requests.exceptions.RequestException as e:
         logger.error(f"Request to LLaVA model failed: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to connect to LLaVA model: {e}")
+
+
+@app.post("/tts")
+async def text_to_speech(request: dict):
+    text = request.get("text")
+    text = preprocess_text_for_tts(text)
+    language = request.get("language", "en")
+
+    logger.info(f"TTS - Received text: {text}")
+
+    if not text:
+        raise HTTPException(status_code=400, detail="Text is required.")
+
+    try:
+        tts = gTTS(text, lang=language)
+        audio_file = "output.mp3"
+        tts.save(audio_file)
+
+        return FileResponse(audio_file, media_type="audio/mp3", filename="output.mp3")
+
+    except Exception as e:
+        logger.error(f"Error generating speech: {e}")
+        raise HTTPException(status_code=500, detail=f"Error generating speech: {e}")
