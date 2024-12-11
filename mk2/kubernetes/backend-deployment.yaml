@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: baudelair
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: clovisdyarx/baudelair-backend:latest
+        envFrom:
+        - configMapRef:
+            name: backend-config
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - mountPath: /app
+          name: backend-volume
+      volumes:
+      - name: backend-volume
+        hostPath:
+          path: ./backend

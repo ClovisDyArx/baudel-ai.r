@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llava-model
+  namespace: baudelair
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llava-model
+  template:
+    metadata:
+      labels:
+        app: llava-model
+    spec:
+      containers:
+      - name: llava-model
+        image: clovisdyarx/baudelair-llava_model:latest
+        ports:
+        - containerPort: 11434
+        volumeMounts:
+        - mountPath: /app
+          name: llava-model-volume
+      volumes:
+      - name: llava-model-volume
+        hostPath:
+          path: ./llava_model

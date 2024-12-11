@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: interface
+  namespace: baudelair
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: interface
+  template:
+    metadata:
+      labels:
+        app: interface
+    spec:
+      containers:
+      - name: interface
+        image: clovisdyarx/baudelair-interface:latest
+        ports:
+        - containerPort: 8501
+        command: [ "bash", "-c", "pip install -r /app/requirements.txt && streamlit run /app/app.py --server.port 8501 --server.address 0.0.0.0" ]
+        volumeMounts:
+        - mountPath: /app
+          name: interface-volume
+      volumes:
+      - name: interface-volume
+        hostPath:
+          path: ./interface
