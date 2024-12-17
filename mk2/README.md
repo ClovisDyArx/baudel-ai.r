@@ -1,3 +1,7 @@
+## **Architecture**
+
+![archi](https://github.com/ClovisDyArx/baudel-ai.r/blob/master/mk2/diagrams/baudelair_diagram.png?raw=true)
+
 ## ***Instructions***
 
 - How to use the service ?
