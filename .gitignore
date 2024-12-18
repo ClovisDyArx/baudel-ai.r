@@ -16,7 +16,7 @@ mk1/src/llm/results/
 mk1/src/finetuned_models/
 
 # Images
-*.png
+# *.png
 *.jpg
 *.jpeg
 
